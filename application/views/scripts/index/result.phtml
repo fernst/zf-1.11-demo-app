@@ -1,0 +1,8 @@
+<div>
+Thank you <?=$this->email?>. The result of your query is:<br><br>
+<?php 
+foreach ($this->peopleList as $elem) {
+	echo implode(',',$elem).'<br>';
+}
+?>
+</div>

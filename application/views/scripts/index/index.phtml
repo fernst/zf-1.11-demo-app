@@ -20,6 +20,16 @@
         overflow: hidden;
         text-align: center;
     }
+    
+    div#errors {
+    	border:2px solid red;
+    	padding:10px;
+    	color:red;
+    }
+    
+    ul.errors {
+    	color:red;
+    }
 
     div#more-information
     {
@@ -27,17 +37,24 @@
         height: 100%;
     }
 </style>
-<div id="welcome">
-    <h1>Welcome to the <span id="zf-name">Zend Framework!</span></h1>
-
-    <h3>This is your project's main page</h3>
-
-    <div id="more-information">
-        <p><img src="http://framework.zend.com/images/PoweredBy_ZF_4LightBG.png" /></p>
-        <p>
-            Helpful Links: <br />
-            <a href="http://framework.zend.com/">Zend Framework Website</a> |
-            <a href="http://framework.zend.com/manual/en/">Zend Framework Manual</a>
-        </p>
-    </div>
+<div>
+<?php
+	$errors = $this->errors;
+	if (count($errors)>0) {
+		echo '<div id="errors">There were errors while processing your upload:';
+		
+		foreach($errors as $error) {
+		    echo sprintf(
+		        '<ul><li>%s</li></ul>',
+		        $error
+		    );
+		}
+		echo '</div>';
+	}
+?>
+Please specify your Email Address and upload a CSV File.
+<?php
+	$this->form->setAction($this->url());
+	echo $this->form;
+?>
 </div>
