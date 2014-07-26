@@ -8,30 +8,25 @@ Write a small application in Zend Framework (version 1.11). The application has 
 
 It accepts the following comma separated csv file (header is also part of the file)
 
-
+```
 Id,Firstname,Lastname
-
 1,John,Doe
-
 2,Adam,Ant
-
 3,Victor,Hugo
-
 4,Britannie,Spears
-
+```
 
 The program should parse the file and order it by first name. As a result on the screen we should see the “result” view with something like this:
 
 
+```
 Thank you <email address that was entered on the form>. The result of your query is:
 
 2,Adam,Ant
-
 4,Britannie,Spears
-
 1,John,Doe
-
 3,Victor,Hugo
+```
 
 
 Don’t worry too much about HTML/CSS formatting/styling. Functionality is important.
