@@ -12,14 +12,14 @@ class IndexController extends Zend_Controller_Action
 		$errors = array();
  		
 		//If a form has been submitted, attempt to process CSV File.
-        if ($this->getRequest()->isPost()) {
-        	//Check if Form was validated successfully
-            if ($csvForm->isValid($request->getPost())) {
-            	
+		if ($this->getRequest()->isPost()) {
+			//Check if Form was validated successfully
+			if ($csvForm->isValid($request->getPost())) {
+				
 				//Get the Email Address from the Form
 				$email = $csvForm->getValue('text');
 				
-            	//Check if file was received successfully. If not, application ends with an error message.
+				//Check if file was received successfully. If not, application ends with an error message.
 				if (!$csvForm->file->receive()) {
 				    $errors[] = "Error Receiving the File";
 				} else {										
@@ -75,14 +75,13 @@ class IndexController extends Zend_Controller_Action
 				    	$errors[] = "Error processing the file: ".$e->getMessage();
 					}
 				}	
-            }
-        }
+			}
+		}
  
- 		//Set the form and the error array for the index view.
-        $this->view->form = $csvForm;
+		//Set the form and the error array for the index view.
+		$this->view->form = $csvForm;
 		$this->view->errors = $errors;
     }
-
 
 }
 

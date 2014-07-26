@@ -3,10 +3,10 @@
 class Application_Form_Input extends Zend_Form
 {
 
-    public function init()
-    {
-        // Set the method for the form to POST
-        $this->setMethod('post');
+	public function init()
+	{
+		// Set the method for the form to POST
+	$this->setMethod('post');
 		
 		// Set this form as a File Upload form
 		$this->setAttrib('enctype', 'multipart/form-data');
@@ -60,12 +60,12 @@ class Application_Form_Input extends Zend_Form
 		$this->addElement($file, 'file');
  	 
 			 
-        // Add the submit button
-        $this->addElement('submit', 'submit', array(
-            'ignore'   => true,
-            'label'    => 'Upload File',
-        ));
-    }
+	// Add the submit button
+	$this->addElement('submit', 'submit', array(
+		'ignore' => true,
+		'label' => 'Upload File',
+		));
+	}
 
 
 }
