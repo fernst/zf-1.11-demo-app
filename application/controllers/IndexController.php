@@ -53,7 +53,7 @@ class IndexController extends Zend_Controller_Action
 							$line = fgetcsv($file);
 							if ($line===false) continue;
 							$peopleList[] = $line;
-							$sortIndex[] = $line[$key];
+							$sortIndex[] = strtolower($line[$key]);
 						}
 						
 						//Sort the peopleList array using the list of names in ascending order.
@@ -72,7 +72,7 @@ class IndexController extends Zend_Controller_Action
 						$this->_helper->viewRenderer('index/result', null, true);
 						
 					} catch (Exception $e) {
-				    	$errors[] = "Error processing the file: ".$e->getMessage();
+						$errors[] = "Error processing the file: ".$e->getMessage();
 					}
 				}	
 			}
